@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,10 @@ Route::get('/blog-details', [HomeController::class, 'blogDetails']);
 Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/doctors', [HomeController::class, 'doctors']);
+
+Route::get('/admin/posts', [PostController::class, 'index']);
+Route::get('/admin/posts/create', [PostController::class, 'create']);
+Route::post('/admin/posts/store', [PostController::class, 'store']);
+Route::get('/admin/posts/update/{id}', [PostController::class, 'update']);
+Route::put('/admin/posts/storeUpdate', [PostController::class, 'storeUpdate']);
+Route::delete('/admin/posts/delete/{id}', [PostController::class, 'delete']);

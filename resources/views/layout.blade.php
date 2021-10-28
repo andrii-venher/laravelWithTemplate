@@ -11,15 +11,19 @@
 
     <title>One Health - Medical Center HTML5 Template</title>
 
-    <link rel="stylesheet" href="assets/css/maicons.css">
+    <link rel="stylesheet" href="/assets/css/maicons.css">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/vendor/owl-carousel/css/owl.carousel.css">
 
-    <link rel="stylesheet" href="assets/vendor/animate/animate.css">
+    <link rel="stylesheet" href="/assets/vendor/animate/animate.css">
 
-    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
@@ -71,19 +75,33 @@
                 <div class="collapse navbar-collapse" id="navbarSupport">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index">Home</a>
+                            <a class="nav-link" href="/index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about">About Us</a>
+                            <a class="nav-link" href="/about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="doctors">Doctors</a>
+                            <a class="nav-link" href="/doctors">Doctors</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog">News</a>
+                            <a class="nav-link" href="/blog">News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact</a>
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/posts">Posts</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
@@ -92,6 +110,13 @@
                 </div> <!-- .navbar-collapse -->
             </div> <!-- .container -->
         </nav>
+        <div class="container">
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+        </div>
     </header>
     @yield('content')
     <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">
