@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,10 @@ Route::post('/admin/posts/store', [PostController::class, 'store']);
 Route::get('/admin/posts/update/{id}', [PostController::class, 'update']);
 Route::put('/admin/posts/storeUpdate', [PostController::class, 'storeUpdate']);
 Route::delete('/admin/posts/delete/{id}', [PostController::class, 'delete']);
+
+Route::get('/admin/categories', [CategoryController::class, 'index']);
+Route::get('/admin/categories/create', [CategoryController::class, 'create']);
+Route::post('/admin/categories', [CategoryController::class, 'store']);
+Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit']);
+Route::put('/admin/categories/{id}', [CategoryController::class, 'update']);
+Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy']);
