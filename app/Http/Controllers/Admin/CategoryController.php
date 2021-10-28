@@ -45,7 +45,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/admin/categories')->with('success', 'Category has been deleted successfully.');
+        return redirect('/admin/categories')->with('success', 'Category has been created successfully.');
     }
 
     /**
