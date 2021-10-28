@@ -28,8 +28,8 @@
                     <td>{{ $post->comments }}</td>
                     <td>{{ $post->image }}</td>
                     <td>
-                        <a href="/admin/posts/update/{{ $post->id }}" class="btn btn-primary mx-auto mb-3">Update</a>
-                        <form action="/admin/posts/delete/{{ $post->id }}" method="POST">
+                        <a href="/admin/posts/{{ $post->id }}/edit" class="btn btn-primary mx-auto mb-3">Update</a>
+                        <form action="/admin/posts/{{ $post->id }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <div class="mb-3">

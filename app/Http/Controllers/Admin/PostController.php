@@ -43,9 +43,9 @@ class PostController extends Controller
         return redirect('/admin/posts')->with('success', 'Post has been created successfully.');
     }
 
-    public function update($id)
+    public function edit($id)
     {
-        return view('admin.posts.update', [
+        return view('admin.posts.edit', [
             'authors' => Author::all(),
             'images' => [
                 'blog_1.jpg',
@@ -53,13 +53,13 @@ class PostController extends Controller
                 'blog_3.jpg',
                 'blog_4.jpg',
             ],
-            'post' => Post::find($id)
+            'post' => Post::findOrFail($id)
         ]);
     }
 
-    public function storeUpdate(UpdatePostRequest $request)
+    public function update(StorePostRequest $request, $id)
     {
-        $post = Post::find(request('id'));
+        $post = Post::findOrFail($id);
         $post->title = request('title');
         $post->content = request('content');
         $post->author_id = request('author_id');

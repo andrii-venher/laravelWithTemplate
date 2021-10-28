@@ -26,10 +26,10 @@ Route::get('/doctors', [HomeController::class, 'doctors']);
 
 Route::get('/admin/posts', [PostController::class, 'index']);
 Route::get('/admin/posts/create', [PostController::class, 'create']);
-Route::post('/admin/posts/store', [PostController::class, 'store']);
-Route::get('/admin/posts/update/{id}', [PostController::class, 'update']);
-Route::put('/admin/posts/storeUpdate', [PostController::class, 'storeUpdate']);
-Route::delete('/admin/posts/delete/{id}', [PostController::class, 'delete']);
+Route::post('/admin/posts', [PostController::class, 'store']);
+Route::get('/admin/posts/{id}/edit', [PostController::class, 'edit']);
+Route::put('/admin/posts/{id}', [PostController::class, 'update']);
+Route::delete('/admin/posts/{id}', [PostController::class, 'delete']);
 
 Route::get('/admin/categories', [CategoryController::class, 'index']);
 Route::get('/admin/categories/create', [CategoryController::class, 'create']);

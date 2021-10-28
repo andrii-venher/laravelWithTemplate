@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="container">
-    <form action="/admin/posts/storeUpdate" method="POST">
+    <form action="/admin/posts/{{ $post->id }}" method="POST">
         @csrf
         @method('PUT')
-        <input type="hidden" name="id" value="{{ $post->id }}">
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" name="title" value="{{ $post->title }}">
