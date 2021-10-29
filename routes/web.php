@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,5 @@ Route::post('/admin/categories', [CategoryController::class, 'store']);
 Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit']);
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update']);
 Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy']);
+
+Route::get('/locale/{code}', [LocaleController::class, 'setLocale']);

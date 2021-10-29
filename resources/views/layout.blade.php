@@ -75,32 +75,43 @@
                 <div class="collapse navbar-collapse" id="navbarSupport">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/index">Home</a>
+                            <a class="nav-link" href="/index">{{ __('app.home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">About Us</a>
+                            <a class="nav-link" href="/about">{{ __('app.about_us') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/doctors">Doctors</a>
+                            <a class="nav-link" href="/doctors">{{ __('app.doctors') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog">News</a>
+                            <a class="nav-link" href="/blog">{{ __('app.news') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                            <a class="nav-link" href="/contact">{{ __('app.contact') }}</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="admin" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
+                                {{ __('app.admin') }}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/admin/posts">Posts</a></li>
-                                <li><a class="dropdown-item" href="/admin/categories">Categories</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="admin">
+                                <li><a class="dropdown-item" href="/admin/posts">{{ __('app.posts') }}</a></li>
+                                <li><a class="dropdown-item" href="/admin/categories">{{ __('app.categories') }}</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-primary ml-lg-3" href="#">Login / Register</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="lang" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ __('app.language') }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="lang">
+                                @foreach (\App\Services\Locale::availableLocales() as $locale)
+                                <li><a class="dropdown-item" href="/locale/{{ $locale->code }}">{{ $locale->name }}</a></li>
+                                @endforeach
+                            </ul>
                         </li>
                     </ul>
                 </div> <!-- .navbar-collapse -->
