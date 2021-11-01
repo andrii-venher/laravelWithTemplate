@@ -39,4 +39,3 @@ Route::get('/admin/categories/{id}/edit', [CategoryController::class, 'edit']);
 Route::put('/admin/categories/{id}', [CategoryController::class, 'update']);
 Route::delete('/admin/categories/{id}', [CategoryController::class, 'destroy']);
 
-Route::get('/locale/{code}', [LocaleController::class, 'setLocale']);

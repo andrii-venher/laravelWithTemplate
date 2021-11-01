@@ -1,5 +1,7 @@
 <?php
 
+use Localization\LocaleServiceProvider;
+
 return [
 
     /*
@@ -165,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Localization\LocaleServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Localization;
 
-use App\Services\Locale;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
-class SetLocale
+class LocaleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +17,7 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next)
     {
-        App::setLocale(Locale::getLocale());
+        App::setLocale(LocaleService::getLocale());
         return $next($request);
     }
 }

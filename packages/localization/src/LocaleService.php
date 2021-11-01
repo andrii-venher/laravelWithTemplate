@@ -1,27 +1,28 @@
 <?php
 
-namespace App\Services;
+namespace Localization;
 
+use Exception;
 use Illuminate\Support\Facades\Session;
 
-class Locale
+class LocaleService
 {
-    const EN = 'en';
-    const RU = 'ru';
     const SESSION_KEY = 'locale';
 
     public static function availableLocales()
     {
-        return collect([
-            (object)[
-                'code' => self::RU,
-                'name' => 'Русский'
-            ],
-            (object)[
-                'code' => self::EN,
-                'name' => 'English'
-            ]
-        ]);
+        $availableLocales = config('locale.available');
+        if(empty($availableLocales)) {
+            throw new LocaleNotFoundException('Available locales is empty.');
+        }
+        $locales = collect();
+        foreach ($availableLocales as $code => $name) {
+            $locales->push((object)[
+                'code' => $code,
+                'name' => $name
+            ]);
+        }
+        return $locales;
     }
 
     public static function setLocale($code)
@@ -41,7 +42,10 @@ class Locale
     {
         $code = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         if (self::availableLocales()->where('code', $code)->isEmpty()) {
-            return self::EN;
+            if(empty(config('locale.default'))) {
+                throw new LocaleNotFoundException('Locale config is not reachable.');
+            }
+            return config('locale.default');
         }
         return $code;
     }

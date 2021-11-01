@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Localization;
 
-use App\Services\Locale as ServicesLocale;
-use Locale;
+use App\Http\Controllers\Controller;
+use Localization;
 
 class LocaleController extends Controller
 {
     public function setLocale($code)
     {
-        ServicesLocale::setLocale($code);
+        LocaleService::setLocale($code);
         return redirect()->back();
     }
 }
