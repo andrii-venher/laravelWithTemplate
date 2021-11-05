@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('posts', [\App\Http\Controllers\Api\ApiPostController::class, 'index']);
+Route::post('posts', [\App\Http\Controllers\Api\ApiPostController::class, 'store']);
+Route::put('posts/{id}', [\App\Http\Controllers\Api\ApiPostController::class, 'update']);
+Route::delete('posts/{id}', [\App\Http\Controllers\Api\ApiPostController::class, 'destroy']);
+
+Route::get('authors', [\App\Http\Controllers\Api\ApiAuthorController::class, 'index']);
+Route::post('authors', [\App\Http\Controllers\Api\ApiAuthorController::class, 'store']);
+Route::put('authors/{id}', [\App\Http\Controllers\Api\ApiAuthorController::class, 'update']);
+Route::delete('authors/{id}', [\App\Http\Controllers\Api\ApiAuthorController::class, 'destroy']);

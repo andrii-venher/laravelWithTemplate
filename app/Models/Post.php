@@ -40,6 +40,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'content', 'author_id', 'image', 'comments', 'date'];
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
